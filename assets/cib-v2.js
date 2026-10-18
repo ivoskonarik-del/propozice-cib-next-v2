@@ -5,7 +5,7 @@
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
     var b=e.target,v=b.querySelector('video');
     if(e.isIntersecting){
-      if(!v.src){v.src=mob?v.dataset.m:v.dataset.d;v.addEventListener('playing',function(){b.classList.add('is-on')},{once:true})}
+      if(!v.src){v.src=mob?(v.dataset.mh&&v.canPlayType('video/mp4; codecs="hvc1.1.6.L123.B0"')==='probably'?v.dataset.mh:v.dataset.m):v.dataset.d;v.addEventListener('playing',function(){b.classList.add('is-on')},{once:true})}
       var p=v.play();if(p&&p.catch)p.catch(function(){});
     }else if(v.src)v.pause();
   })},{rootMargin:'300px 0px'});
