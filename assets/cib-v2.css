@@ -1,0 +1,18 @@
+/* CIB v2 (18. 10. 2026): video pásy ze skutečných záběrů (Galba) */
+.vband{position:relative;height:min(88vh,860px);min-height:520px;background:#000;color:#fff;overflow:hidden;z-index:5}
+.vband__v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.vband.is-on .vband__v{opacity:1}
+.vband__dim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 50%,rgba(0,0,0,.78) 100%),linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,0) 60%)}
+.vband__in{position:absolute;left:0;right:0;bottom:0;padding-bottom:clamp(40px,6vw,96px)!important;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 64px;align-items:end}
+.vband__in .global-site-title{font-size:clamp(40px,4.6vw,74px);left:0;margin:0!important}
+.vband__in p{margin:0;max-width:46ch;font-family:var(--fs);font-size:16px;line-height:1.75;color:rgba(255,255,255,.82)}
+.vband__chips{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;list-style:none}
+.vband__chips li{font-family:var(--ft);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.78);padding-left:16px;position:relative}
+.vband__chips li::before{content:"";position:absolute;left:0;top:50%;width:8px;height:1px;background:var(--bronz,#a17652)}
+@media (max-width:991px){
+  .vband{height:auto;min-height:0;aspect-ratio:4/5;max-height:100svh}
+  .vband__in{grid-template-columns:1fr;padding-bottom:36px!important;gap:14px}
+  .vband__in p{font-size:15px}
+  .vband__chips{gap:6px 16px}.vband__chips li{font-size:11px;letter-spacing:.18em}
+}
+@media (prefers-reduced-motion:reduce){.vband__v{display:none}}
