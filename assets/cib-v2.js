@@ -24,3 +24,19 @@
     a.addEventListener('mouseleave',function(){w.classList.remove('is-hv');setTimeout(function(){if(!w.classList.contains('is-hv'))v.pause()},500)});
   });
 })();
+/* CIB v2: popisek v heru podle toho, co je právě v záběru (kapitoly z v2_smycka.py) */
+(function(){
+  var v=document.getElementById('cib-hero-video'),ch=v&&v.dataset.chapters&&JSON.parse(v.dataset.chapters);if(!ch)return;
+  var box=document.querySelector('#content-slider .slider-content-inner');if(!box)return;
+  var lab=box.querySelector('.slider-offices-label'),a=box.querySelector('.slider-office-list a');if(!lab||!a)return;
+  var B=(a.getAttribute('href')||'').replace(/(\/propozice-cib-next[^/]*\/).*/,'$1');
+  var P={balabenka:['Kanceláře · Praha 9','Balabenka Office Building','nemovitosti/balabenka/'],v33:['Kanceláře · Praha 1','Residence Vodičkova 33','nemovitosti/vodickova-33/'],
+    suites:['Apartmány · Praha 1','Vodičkova Luxury Suites','nemovitosti/vodickova-luxury-suites/'],ess:['Stáje · Lichoceves','Emma Sophia Stables','staje/emma-sophia-stables/'],
+    lich:['Development · Lichoceves','Obec v zahradě','development/lichoceves/'],liberec:['Správa bytů · Liberecko','Byty Liberec a Hrádek','nemovitosti/sprava-bytu-liberec/']};
+  var cur='';box.classList.add('v2-cap');
+  function tick(){
+    var t=v.currentTime,k=ch[0][1];for(var i=0;i<ch.length;i++)if(t>=ch[i][0])k=ch[i][1];
+    if(k!==cur&&P[k]){cur=k;box.classList.add('is-sw');setTimeout(function(){var p=P[cur];lab.textContent=p[0];a.firstChild.nodeValue=p[1]+' ';a.setAttribute('href',B+p[2]);box.classList.remove('is-sw')},260)}
+  }
+  setInterval(tick,250);
+})();
