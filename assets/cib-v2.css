@@ -12,6 +12,7 @@
 @media (max-width:991px){
   .vband{height:auto;min-height:0;aspect-ratio:4/5;max-height:100svh}
   .vband__in{grid-template-columns:1fr;padding-bottom:36px!important;gap:14px}
+  .vband__dim{background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,.35) 35%,rgba(0,0,0,.82) 100%)}
   .vband__in p{font-size:15px}
   .vband__chips{gap:6px 16px}.vband__chips li{font-size:11px;letter-spacing:.18em}
 }
