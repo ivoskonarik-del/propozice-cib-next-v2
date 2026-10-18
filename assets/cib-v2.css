@@ -16,3 +16,7 @@
   .vband__chips{gap:6px 16px}.vband__chips li{font-size:11px;letter-spacing:.18em}
 }
 @media (prefers-reduced-motion:reduce){.vband__v{display:none}}
+/* dlaždice: video po najetí */
+.fp-photo-wrap{position:relative}
+.fp-hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease;pointer-events:none}
+.fp-photo-wrap.is-hv .fp-hv{opacity:.42}
