@@ -40,3 +40,10 @@
   }
   setInterval(tick,250);
 })();
+/* CIB v2: video v heru Kontaktu */
+(function(){
+  var v=document.querySelector('.khero__v');if(!v)return;
+  var mob=window.matchMedia('(max-width:991px)').matches;
+  v.src=mob?(v.canPlayType('video/mp4; codecs="hvc1.1.6.L123.B0"')==='probably'?v.dataset.mh:v.dataset.m):v.dataset.d;
+  var p=v.play();if(p&&p.catch)p.catch(function(){});
+})();
